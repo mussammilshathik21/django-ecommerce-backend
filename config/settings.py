@@ -175,5 +175,9 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-if not User.objects.filter(username="admin").exists():
-    User.objects.create_superuser("admin", "admin@email.com", "admin123")
+if not User.objects.filter(username="shathik").exists():
+    User.objects.create_superuser(
+        "shathik",
+        "shathik@email.com",
+        "shathik21"
+    )
