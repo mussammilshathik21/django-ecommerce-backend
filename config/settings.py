@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 import dj_database_url
+
 import os
 
 DATABASES = {
@@ -169,4 +170,10 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+if not User.objects.filter(username="shathik").exists():
+    User.objects.create_superuser("shathik", "mussammilshathik2@email.com", "shathik21")
